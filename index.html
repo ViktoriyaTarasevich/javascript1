@@ -9,13 +9,13 @@
     <div>
         <form name = "array_worker">
             <p>Input Value:enter array. format example: 1 2 3 4 5</p>
-            <input type = "text"  name = "value">
-            <p><input type = "button" value = "Search Min Value" onclick = "this.form.outputValue = ArrayHelper.MinValue(document.getElementsByName('name')[0])"></p>
-            <p><input type = "button" value = "Search Max Value" onclick = "this.form.outputValue = ArrayHelper.MaxValue(document.getElementsByName('name')[0])"></p>
-            <p><input type = "button" value = "Search Median Value" onclick = "this.form.outputValue = ArrayHelper.MedianValue(document.getElementsByName('name')[0])"></p>
-            <p><input type = "button" value = "Sub Sum (quick)" onclick = "this.form.outputValue = ArrayHelper.MaxSubSumN(document.getElementsByName('name')[0])"></p>
-            <p><input type = "button" value = "Sub Sum" onclick = "this.form.outputValue = ArrayHelper.MaxSubSumN2(document.getElementsByName('name')[0])"></p>
-            <p><input type = "button" value = "Selection Task" onclick = "this.form.outputValue = ArrayHelper.IncreasingSequence(document.getElementsByName('name')[0])"></p>
+            <input type = "text"  name = "value" id = "array">
+            <p><input type = "button" value = "Search Min Value" onclick = "document.array_worker.outputValue.value = ArrayHelper.MinValue(document.getElementById('array'))"></p>
+            <p><input type = "button" value = "Search Max Value" onclick = "document.array_worker.outputValue.value = ArrayHelper.MaxValue(document.getElementById('array'))"></p>
+            <p><input type = "button" value = "Search Median Value" onclick = "document.array_worker.outputValue.value = ArrayHelper.MedianValue(document.getElementById('array'))"></p>
+            <p><input type = "button" value = "Sub Sum (quick)" onclick = "document.array_worker.outputValue.value = ArrayHelper.MaxSubSumN(document.getElementById('array'))"></p>
+            <p><input type = "button" value = "Sub Sum" onclick = "document.array_worker.outputValue.value = ArrayHelper.MaxSubSumN2(document.getElementById('array'))"></p>
+            <p><input type = "button" value = "Selection Task" onclick = "document.array_worker.outputValue.value = ArrayHelper.IncreasingSequence(document.getElementById('array'))"></p>
             <p>Output Value:</p><textarea name = "outputValue"></textarea>
         </form>
     </div>
