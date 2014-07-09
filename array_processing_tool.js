@@ -111,6 +111,8 @@ ArrayHelper = {
 
     Array: function getArrayFromString(form){
 
+	   var cleanerStringRegex = /[A-Za-zА-яа-я]/;
+	   var cleandString = form.value.replace(cleanerStringRegex,' ');
 	   var splitRegex = /[\s,\._]/;
        var tempArray = form.value.split(splitRegex);
 	   var resultArray = [];

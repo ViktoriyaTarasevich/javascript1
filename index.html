@@ -3,20 +3,21 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Array Processing Tool</title>
-
+	<link rel="stylesheet" href="styles.css" type="text/css"/>
 </head>
 <body>
     <div>
         <form name = "array_worker">
-            <p>Input Value:enter array. format example: 1 2 3 4 5</p>
-            <input type = "text"  name = "value" id = "array">
-            <p><input type = "button" value = "Search Min Value" onclick = "document.array_worker.outputValue.value = ArrayHelper.MinValue(document.getElementById('array'))"></p>
-            <p><input type = "button" value = "Search Max Value" onclick = "document.array_worker.outputValue.value = ArrayHelper.MaxValue(document.getElementById('array'))"></p>
-            <p><input type = "button" value = "Search Median Value" onclick = "document.array_worker.outputValue.value = ArrayHelper.MedianValue(document.getElementById('array'))"></p>
-            <p><input type = "button" value = "Sub Sum (quick)" onclick = "document.array_worker.outputValue.value = ArrayHelper.MaxSubSumN(document.getElementById('array'))"></p>
-            <p><input type = "button" value = "Sub Sum" onclick = "document.array_worker.outputValue.value = ArrayHelper.MaxSubSumN2(document.getElementById('array'))"></p>
-            <p><input type = "button" value = "Selection Task" onclick = "document.array_worker.outputValue.value = ArrayHelper.IncreasingSequence(document.getElementById('array'))"></p>
-            <p>Output Value:</p><textarea name = "outputValue"></textarea>
+            <h3>Input Value:enter array. format example: 1 2 3 4</h3>
+            <input type = "text"  class ="input_value" name = "value" id = "array">
+            <p><input type = "button" class ="calcul_submit" value = "Search Min Value" onclick = "document.array_worker.outputValue.value = ArrayHelper.MinValue(document.getElementById('array'))"></p>
+            <p><input type = "button" class ="calcul_submit" value = "Search Max Value" onclick = "document.array_worker.outputValue.value = ArrayHelper.MaxValue(document.getElementById('array'))"></p>
+            <p><input type = "button" class ="calcul_submit" value = "Search Median Value" onclick = "document.array_worker.outputValue.value = ArrayHelper.MedianValue(document.getElementById('array'))"></p>
+            <p><input type = "button" class ="calcul_submit" value = "Sub Sum (quick)" onclick = "document.array_worker.outputValue.value = ArrayHelper.MaxSubSumN(document.getElementById('array'))"></p>
+            <p><input type = "button" class ="calcul_submit" value = "Sub Sum" onclick = "document.array_worker.outputValue.value = ArrayHelper.MaxSubSumN2(document.getElementById('array'))"></p>
+            <p><input type = "button" class ="calcul_submit" value = "Selection Task" onclick = "document.array_worker.outputValue.value = ArrayHelper.IncreasingSequence(document.getElementById('array'))"></p>
+            <h3>Output Value:</h3>
+			<textarea name = "outputValue" readonly></textarea>
         </form>
     </div>
     <script src="./array_processing_tool.js"></script>
