@@ -4,22 +4,30 @@
     <meta charset="UTF-8">
     <title>Array Processing Tool</title>
 	<link rel="stylesheet" href="styles.css" type="text/css"/>
+
 </head>
-<body>
+<body >
     <div>
         <form name = "array_worker">
+
             <h3>Input Value:enter array. format example: 1 2 3 4</h3>
             <input type = "text"  class ="input_value" name = "value" id = "array">
-            <p><input type = "button" class ="calcul_submit" value = "Search Min Value" onclick = "document.array_worker.outputValue.value = ArrayHelper.MinValue(document.getElementById('array'))"></p>
-            <p><input type = "button" class ="calcul_submit" value = "Search Max Value" onclick = "document.array_worker.outputValue.value = ArrayHelper.MaxValue(document.getElementById('array'))"></p>
-            <p><input type = "button" class ="calcul_submit" value = "Search Median Value" onclick = "document.array_worker.outputValue.value = ArrayHelper.MedianValue(document.getElementById('array'))"></p>
-            <p><input type = "button" class ="calcul_submit" value = "Sub Sum (quick)" onclick = "document.array_worker.outputValue.value = ArrayHelper.MaxSubSumN(document.getElementById('array'))"></p>
-            <p><input type = "button" class ="calcul_submit" value = "Sub Sum" onclick = "document.array_worker.outputValue.value = ArrayHelper.MaxSubSumN2(document.getElementById('array'))"></p>
-            <p><input type = "button" class ="calcul_submit" value = "Selection Task" onclick = "document.array_worker.outputValue.value = ArrayHelper.IncreasingSequence(document.getElementById('array'))"></p>
+            <p><input type = "button" class ="calcul_submit" id ="min_value" value = "Search Min Value"></p>
+            <p><input type = "button" class ="calcul_submit" id = "max_value" value = "Search Max Value" ></p>
+            <p><input type = "button" class ="calcul_submit" id = "median_value" value = "Search Median Value" ></p>
+            <p><input type = "button" class ="calcul_submit" id = "quick_sub_sum" value = "Sub Sum (quick)" ></p>
+            <p><input type = "button" class ="calcul_submit" id = "slow_sub_sum" value = "Sub Sum"></p>
+            <p><input type = "button" class ="calcul_submit" id = "increase_sequence" value = "Selection Task"></p>
             <h3>Output Value:</h3>
 			<textarea name = "outputValue" readonly></textarea>
         </form>
     </div>
+
     <script src="./array_processing_tool.js"></script>
+    <script src="./event_listeners.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', setEvents, false);
+    </script>
+
 </body>
 </html>
