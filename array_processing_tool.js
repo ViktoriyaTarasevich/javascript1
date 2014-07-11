@@ -1,7 +1,6 @@
 ArrayHelper = {
-    MaxSubSumN2 : function getMaxSubSumn2(value)
-    {
-        var array = ArrayHelper.Array(value);
+    maxSubSumN2 : function getMaxSubSumn2(value){
+        var array = ArrayHelper.arrayParsing(value);
         var sum = 0;
         for (var i = 0; i < array.length; i++) {
             var tempSum = 0;
@@ -10,106 +9,111 @@ ArrayHelper = {
                 sum = Math.max(sum, tempSum);
             }
         }
-        document.array_worker.outputValue.value = sum;
+        setData(sum);
+        return sum;
     },
 
     /**O(n)*/
-    MaxSubSumN: function getMaxSumSubn(value)
-    {
-        var array = ArrayHelper.Array(value);
+    maxSubSumN: function getMaxSumSubn(value){
+        var array = ArrayHelper.arrayParsing(value);
         var maxSum = 0, partialSum = 0;
         for (var i=0; i<array.length; i++) {
             partialSum += array[i];
             maxSum = Math.max(maxSum, partialSum);
             if (partialSum < 0) partialSum = 0;
         }
-        document.array_worker.outputValue.value = maxSum;
+        setData(maxSum);
+        return maxSum;
     },
 
-    MinValue : function searchMin(value)
-    {
-        var array = ArrayHelper.Array(value);
+    minValue : function searchMin(value){
+        var array = ArrayHelper.arrayParsing(value);
         var min = array[0];
         for (var i = 1; i < array.length; i++) {
             if (min > array[i]) {
                 min = array[i];
             }
         }
-        document.array_worker.outputValue.value = min;
+        setData(min);
+        return min;
     },
 
-    MaxValue: function searchMax(value)
-    {
-        var array = ArrayHelper.Array(value);
+    maxValue: function searchMax(value){
+        var array = ArrayHelper.arrayParsing(value);
         var max = array[0];
         for (var i = 1; i < array.length; i++) {
             if (max < array[i]) {
                 max = array[i];
             }
         }
-        document.array_worker.outputValue.value =  max;
+        setData(max);
+        return max;
     },
 
-    MedianValue: function searchMedian(value)
-    {
-        var array = ArrayHelper.Array(value);
+    medianValue: function searchMedian(value){
+        var array = ArrayHelper.arrayParsing(value);
         var med = 0;
 		function sortNumber(a,b) {
 			return a - b;
 		}
         array.sort(sortNumber);
         var half = Math.floor(array.length/2);
-		if(array.length % 2)
-            document.array_worker.outputValue.value =  array[half];
-		else
-            document.array_worker.outputValue.value =  (array[half-1] + array[half]) / 2.0;
-
+		if(array.length % 2){
+            setData(array[half]);
+            return array[half];
+        }
+		else{
+            setData((array[half-1] + array[half]) / 2.0)
+            return (array[half-1] + array[half]) / 2.0;
+        }
     },
 
-    IncreasingSequence: function getIncreasingSequence(value)
-    {
-        var arr = ArrayHelper.Array(value);
+    maximumSubArray: function getMaximumSubArray(value){
+        var arr = ArrayHelper.arrayParsing(value);
         var result = [];
-        var is = [];
+        var increasingSubSequence = [];
         var  index = 0;
-        is[0] = index;
+        increasingSubSequence[0] = index;
 
         for (var i = 1; i < arr.length; i++) {
-            if (arr[i] < arr[is[index]]) {
+            if (arr[i] < arr[increasingSubSequence[index]]) {
                 for (var j = 0; j <= index; j++) {
-                    if (arr[i] < arr[is[j]]) {
-                        is[j] = i;
+                    if (arr[i] < arr[increasingSubSequence[j]]) {
+                        increasingSubSequence[j] = i;
                         break;
                     }
                 }
-            } else if (arr[i] == arr[is[index]]) {
+            } else if (arr[i] == arr[increasingSubSequence[index]]) {
 
             } else {
-                is[++index] = i;
+                increasingSubSequence[++index] = i;
             }
         }
 
-        var lis = [];
-        lis[index] = arr[is[index]];
+        var longestIncreasingSubSequence = [];
+        longestIncreasingSubSequence[index] = arr[increasingSubSequence[index]];
 
         for (var i = index - 1; i >= 0; i--) {
-            if (is[i] < is[i + 1]) {
-                lis[i] = arr[is[i]];
+            if (increasingSubSequence[i] < increasingSubSequence[i + 1]) {
+                longestIncreasingSubSequence[i] = arr[increasingSubSequence[i]];
             } else {
-                for (var j = is[i + 1] - 1; j >= 0; j--) {
-                    if (arr[j] > arr[is[i]] && arr[j] < arr[is[i + 1]]) {
-                        lis[i] = arr[j];
-                        is[i] = j;
+                for (var j = increasingSubSequence[i + 1] - 1; j >= 0; j--) {
+                    if (arr[j] > arr[increasingSubSequence[i]] && arr[j] < arr[increasingSubSequence[i + 1]]) {
+                        longestIncreasingSubSequence[i] = arr[j];
+                        increasingSubSequence[i] = j;
                         break;
                     }
                 }
             }
         }
 
-        document.array_worker.outputValue.value =  lis.toString();
+        setData(longestIncreasingSubSequence.toString());
+        return longestIncreasingSubSequence.toString();
     },
 
-    Array: function getArrayFromString(){
+    arrayParsing: function parseFromString(){
+       if (arguments[0] && arguments[0] instanceof Array)
+            return arguments[0];
        var form = document.getElementById('array');
 	   var cleanerStringRegex = /[A-Za-zА-яа-я]/;
 	   var cleanedString = form.value.replace(cleanerStringRegex,' ');
@@ -122,6 +126,10 @@ ArrayHelper = {
 		return resultArray;
     }
 
+}
+
+function setData(value){
+    document.array_worker.outputValue.value = value;
 }
 
 
