@@ -2,7 +2,7 @@ form{
     margin:0 auto;
     padding: 10px;
 }
-.calcul_submit{
+.calculSubmit{
     height: 5%;
     margin: 0 auto;
     font-size: 16px;
@@ -16,7 +16,7 @@ form{
 	border: 0;
 	background: #e84c3d;
 }
-.input_value,textarea{
+.inputValue,textarea{
 	width: 85%;
 	height: 20%;
 	border: 1px solid #000; 
