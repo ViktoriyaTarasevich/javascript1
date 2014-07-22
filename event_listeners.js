@@ -1,3 +1,4 @@
+'use strict';
 function setEvents() {
     document.getElementById('min_value').addEventListener('click',
         setData(document.arrayWorker.outputValue.value, ArrayHelper.maxValue, document.getElementById('array')), false);

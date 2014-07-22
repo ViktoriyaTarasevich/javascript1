@@ -1,4 +1,5 @@
-ArrayHelper = {
+'use strict';
+var ArrayHelper = {
     maxSubSumN2 : function getMaxSubSumn2(value){
         var array = ArrayHelper.arrayParsing(value);
         var sum = 0;
